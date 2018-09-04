@@ -4,7 +4,7 @@ import java.util.Random;
 
 public class FarkleApp {
 
-	static Random rand = new Random();
+	public static Random rand = new Random();
 	
 	public static void main(String[] args) {
 		
@@ -13,16 +13,18 @@ public class FarkleApp {
 		p1.setTurn(true);
 		System.out.println("players turn " + p1.isTurn());
 		
-		System.out.println("players roll " + p1.Roll());
-		p1.setRoll(true);
-		System.out.println("players roll " + p1.Roll());
+		System.out.println("players roll " + p1.roll());
 
-		System.out.println(GamePlay.roll());
-		System.out.println(GamePlay.getDiceArray());
 
-		Score.getScore(GamePlay.getDiceArray());
+		Score.getScore(Player.getDiceArray());
 		
 		System.out.println(Score.tempScore);
+		
+		System.out.println(GamePlay.whoGoesFirst());
+		System.out.println(GamePlay.whoGoesFirst());
+		System.out.println(GamePlay.whoGoesFirst());
+		System.out.println(GamePlay.whoGoesFirst());
+		System.out.println(GamePlay.whoGoesFirst());
 		/*
 		int temp = 0;
 		for (int i = 0; i < GamePlay.getDiceArray().size(); i++) {

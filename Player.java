@@ -1,5 +1,10 @@
 package farkle;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Random;
+
 public class Player {
 	private static int Score;
 	private static String Name;
@@ -7,6 +12,9 @@ public class Player {
 	public static boolean isTurn;
 	public static boolean endTurn;
 	public static boolean roll;
+	static Random rand = new Random();
+	static List<Integer> diceArray = new ArrayList<>();
+	
 	/**
 	 * @param score
 	 * @param name
@@ -18,8 +26,33 @@ public class Player {
 		Player.isPlayer = isPlayer;
 	}
 	
-	public static boolean Roll() {
-		return roll;
+	public static List<Integer> getDiceArray() {
+		return diceArray;
+	}
+
+
+	public static void setDiceArray(List<Integer> diceArray) {
+		Player.diceArray = diceArray;
+	}
+
+	public static List<Integer> roll() {
+		
+		for (int i = 1; i <= 6; i++) {
+		diceArray.add(getRandomNumberInRange(1,6));
+		}
+		
+		Collections.shuffle(diceArray);
+		return diceArray;
+		
+	}
+	
+	public static int getRandomNumberInRange(int min, int max) {
+		
+		if (min >= max) {
+			throw new IllegalArgumentException("max must be greater than min");
+		}
+		
+		return rand.nextInt((max - min)+1) + min;
 	}
 	
 	public static void setRoll(boolean roll) {
