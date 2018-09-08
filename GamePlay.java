@@ -1,18 +1,15 @@
 package farkle;
 
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
-import java.util.Random;
 
 public class GamePlay {	
 	
-	public static int evalRule(List<Integer> list){
+	public int evalRule(List<Integer> list){
 		//TODO need to check score which is stored in Score class
 		//Not yet implemented
-		
-		//return Score.getScore(list);
-		return 0;
+	    Score s1 = new Score();	
+		s1.getScore(list);
+		return Score.tempScore;
 	}
 	
 	public static void currentWinner(Player p, int Score) {
@@ -27,7 +24,7 @@ public class GamePlay {
 		return false;
 	}
 	
-	public static String whoGoesFirst() {
+	public String whoGoesFirst() {
 		int result = Player.getRandomNumberInRange(0, 1);
 		
 		if (result == 0) {
@@ -41,4 +38,6 @@ public class GamePlay {
 		//Not yet implemented
 		return 0;
 	}
+	
+
 }
